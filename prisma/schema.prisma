@@ -10,8 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Pokemon {
   id      Int      @id @default(autoincrement())
   name    String?  @db.VarChar(255)
-  email   String   @unique @db.VarChar(255)
+  pokemonType PokemonTypes[] 
 }
+
+enum PokemonTypes {
+	planta
+	fogo
+	agua
+	inseto
+	voador
+	venenoso
+	terrestre
+	pedra
+	normal
+	lutador
+	fantasma
+	aco
+	eletrico
+	psiquico	
+	gelo
+	dragao
+	fada
+	sombrio
+	desconhecido
+}
+
