@@ -13,28 +13,38 @@ datasource db {
 model Pokemon {
   id      Int      @id @default(autoincrement())
   name    String?  @db.VarChar(255)
-  pokemonType PokemonTypes[] 
+  //pokemonType PokemonTypes[] 
+	image String?
+	pokemonTypes PokemonTypes[]
 }
 
-enum PokemonTypes {
-	planta
-	fogo
-	agua
-	inseto
-	voador
-	venenoso
-	terrestre
-	pedra
-	normal
-	lutador
-	fantasma
-	aco
-	eletrico
-	psiquico	
-	gelo
-	dragao
-	fada
-	sombrio
-	desconhecido
+model PokemonTypes {
+	id Int @id @default(autoincrement())
+	name String
+ 	image String?
+	pokemons Pokemon[]
 }
+
+
+// enum PokemonTypes {
+// 	planta
+// 	fogo
+// 	agua
+// 	inseto
+// 	voador
+// 	venenoso
+// 	terrestre
+// 	pedra
+// 	normal
+// 	lutador
+// 	fantasma
+// 	aco
+// 	eletrico
+// 	psiquico	
+// 	gelo
+// 	dragao
+// 	fada
+// 	sombrio
+// 	desconhecido
+// }
 

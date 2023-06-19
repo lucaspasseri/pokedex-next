@@ -6,8 +6,8 @@ export async function GET() {
 
 	const pokemon = await prisma.pokemon.create({
 		data: {
-			name: "Blastoise",
-			pokemonType: "agua",
+			// name: "Blastoise",
+			// pokemonType: "agua",
 		},
 	});
 
