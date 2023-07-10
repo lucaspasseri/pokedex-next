@@ -1,19 +1,35 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
+import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
+import Image from "next/image";
 
 async function getPokemon(context: any) {
-	const pokemonName = context?.params?.pokemon;
-	console.log({ context });
-	console.log({ pokemonName });
-	// let pokemon = await prisma.pokemon.findFirst({
-	// 	where: {
-	// 		name: "Bulbassauro",
-	// 	},
-	// });
+	const pokemonName = context;
+	let pokemon = await prisma.pokemon.findFirst({
+		where: {
+			name: `${capitalizeFirstLetter(pokemonName)}`,
+		},
+	});
+
+	return pokemon;
 }
 
-export default async function Pokemon(context: any) {
-	const data = await getPokemon(context);
-	console.log({ data });
-	return <div>oi</div>;
+export default async function Pokemon({ params }: any) {
+	const pokemon = await getPokemon(params.pokemon);
+	return (
+		<div>
+			<div>{pokemon?.id}</div>
+			<div>{pokemon?.name}</div>
+			<div>
+				{pokemon?.image && (
+					<Image
+						alt="bulbassauro"
+						src={pokemon.image}
+						width={100}
+						height={100}
+					/>
+				)}
+			</div>
+		</div>
+	);
 }

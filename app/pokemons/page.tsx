@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 import Pokemons from "../components/pokemons/pokemons";
 
-export default async function Home(context: any) {
+export default async function Home() {
 	async function getPokemons() {
 		let pokemons = await prisma.pokemon.findMany();
 		return pokemons;

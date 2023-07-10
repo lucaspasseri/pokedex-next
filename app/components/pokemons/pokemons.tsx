@@ -20,7 +20,7 @@ export default function Pokemons({ pokemons }: any) {
 								</Link>
 							</div>
 							<div>
-								{pokemon.pokemonType.map((type: any, index: any) => (
+								{pokemon.pokemonType?.map((type: any, index: any) => (
 									<div key={index}>{type}</div>
 								))}
 							</div>

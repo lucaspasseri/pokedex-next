@@ -34,13 +34,14 @@ export default function RootLayout({
 						</Link>
 					</div>
 				</div>
-				<div className="flex justify-center h-24">
+				<div className="flex justify-center max-h-40">
 					<Image
 						src={banner}
 						alt="banner - pokedex"
 						height={256}
 						width={725}
-						layout="responsive"
+						quality={100}
+						sizes="100vw"
 					/>
 				</div>
 				<div className="bg-blue-300 h-[calc(100vh-24px)]"> {children}</div>
