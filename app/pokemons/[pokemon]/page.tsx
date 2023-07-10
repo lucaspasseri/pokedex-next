@@ -17,7 +17,7 @@ async function getPokemon(context: any) {
 export default async function Pokemon({ params }: any) {
 	const pokemon = await getPokemon(params.pokemon);
 	return (
-		<div>
+		<div className="bg-green-600">
 			<div>{pokemon?.id}</div>
 			<div>{pokemon?.name}</div>
 			<div>

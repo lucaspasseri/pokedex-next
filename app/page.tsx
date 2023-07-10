@@ -77,7 +77,7 @@ export default async function Home() {
 	const waterPokemons = await getWaterType();
 
 	return (
-		<main className="justify-center h-full">
+		<main className="justify-center h-full bg-blue-700">
 			<ListOfPokemonsByType
 				firePokemons={firePokemons}
 				grassPokemons={grassPokemons}

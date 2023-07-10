@@ -11,7 +11,7 @@ export default function ListOfPokemons({ pokemons }: any) {
 						<li className="flex justify-center" key={item.id}>
 							<Link href={`pokemons/${item.name}`}>
 								<div className="flex flex-col flex-1 shadow-trello">
-									<div className="flex justify-center border">
+									<div className="flex justify-center">
 										<div>{item.id}</div>
 										<div className="ml-2">{item.name}</div>
 									</div>

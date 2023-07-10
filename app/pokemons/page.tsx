@@ -12,7 +12,7 @@ export default async function Home() {
 	let pokemons = await getPokemons();
 
 	return (
-		<main className="flex justify-center border-2 h-full bg-orange-300 flex-1">
+		<main className="flex justify-center h-full  bg-orange-300 flex-1">
 			<Pokemons pokemons={pokemons} />
 		</main>
 	);

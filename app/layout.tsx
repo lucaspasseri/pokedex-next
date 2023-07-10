@@ -2,8 +2,8 @@ import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import logo from "../public/images/app/pokeball-logo.png";
-import banner from "../public/images/app/pokedex-banner.png";
+import logo from "../public/images/app/pokeball-logo2.png";
+import banner from "../public/images/app/pokedex-banner3.jpeg";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,32 +19,45 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-red-600 min-h-screen">
-				<div className="h-20 flex items-center">
-					<div className="ml-6">
-						<Image src={logo} alt="logo - pokebola" width={50} height={50} />
-					</div>
-					<div className="border ml-20">
-						<Link className="ml-4 hover:bg-red-500" href={"/"}>
-							Home
-						</Link>
+			<body className="bg-black min-h-screen ">
+				<div className="flex justify-center fixed w-screen shadow-header">
+					<div className=" max-w-screen-2xl flex items-center">
+						<div className=" absolute flex w-full max-w-screen-2xl items-center">
+							<Link href={"/"} className="ml-6">
+								<Image
+									src={logo}
+									alt="logo - pokebola"
+									width={80}
+									height={80}
+								/>
+							</Link>
+							<div className=" w-full flex">
+								<Link
+									className="ml-20 p-2 hover:bg-red-700 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+									href={"/"}
+								>
+									Home
+								</Link>
 
-						<Link className="ml-4  hover:bg-red-500 mr-4" href={"/pokemons"}>
-							Pokemons
-						</Link>
+								<Link
+									className="ml-4 p-2 hover:bg-red-700 mr-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+									href={"/pokemons"}
+								>
+									Pokemons
+								</Link>
+							</div>
+						</div>
+						<Image
+							src={banner}
+							alt="banner - pokedex"
+							height={600}
+							width={3840}
+							quality={100}
+							sizes="100vw"
+						/>
 					</div>
 				</div>
-				<div className="flex justify-center max-h-40">
-					<Image
-						src={banner}
-						alt="banner - pokedex"
-						height={256}
-						width={725}
-						quality={100}
-						sizes="100vw"
-					/>
-				</div>
-				<div className="bg-blue-300 h-[calc(100vh-24px)]"> {children}</div>
+				<div className="min-h-full"> {children}</div>
 			</body>
 		</html>
 	);
