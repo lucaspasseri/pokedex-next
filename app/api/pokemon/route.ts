@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../../db/db";
 
 export async function GET() {
-	const prisma = new PrismaClient();
-
 	const pokemon = await prisma.pokemon.create({
 		data: {
 			// name: "Blastoise",

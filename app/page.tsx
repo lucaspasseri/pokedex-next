@@ -1,12 +1,11 @@
 import { Inter } from "next/font/google";
-import { PrismaClient } from "@prisma/client";
 import ListOfPokemons from "./components/ListOfPokemons";
 import ListOfPokemonsByType from "./components/ListOfPokemonsByType";
+import { prisma } from "./db/db";
 
 const inter = Inter({ subsets: ["latin"] });
 
 async function getThemAll() {
-	const prisma = new PrismaClient();
 	const pokemons = await prisma.pokemon.findMany({
 		include: {
 			pokemonTypes: true,
@@ -17,7 +16,6 @@ async function getThemAll() {
 }
 
 async function getFireType() {
-	const prisma = new PrismaClient();
 	const pokemons = await prisma.pokemon.findMany({
 		where: {
 			pokemonTypes: {
@@ -35,7 +33,6 @@ async function getFireType() {
 }
 
 async function getGrassType() {
-	const prisma = new PrismaClient();
 	const pokemons = await prisma.pokemon.findMany({
 		where: {
 			pokemonTypes: {
@@ -53,7 +50,6 @@ async function getGrassType() {
 }
 
 async function getWaterType() {
-	const prisma = new PrismaClient();
 	const pokemons = await prisma.pokemon.findMany({
 		where: {
 			pokemonTypes: {
@@ -77,7 +73,7 @@ export default async function Home() {
 	const waterPokemons = await getWaterType();
 
 	return (
-		<main className="justify-center h-full bg-blue-700">
+		<main className="bg-blue-700">
 			<ListOfPokemonsByType
 				firePokemons={firePokemons}
 				grassPokemons={grassPokemons}

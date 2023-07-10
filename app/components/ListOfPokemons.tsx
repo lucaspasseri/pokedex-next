@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ListOfPokemons({ pokemons }: any) {
 	return (
-		<div className="p-4">
+		<section className="flex">
 			<h2>Ordem numérica:</h2>
 			<div className="flex items-center justify-center">
 				<ol className="grid grid-cols-2 grid-flow-row w-3/5 shadow-3xl gap-4 p-4 m-2 md:grid-cols-3">
@@ -29,6 +29,6 @@ export default function ListOfPokemons({ pokemons }: any) {
 					))}
 				</ol>
 			</div>
-		</div>
+		</section>
 	);
 }

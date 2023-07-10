@@ -20,9 +20,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className="bg-black min-h-screen ">
-				<div className="flex justify-center fixed w-screen shadow-header">
-					<div className=" max-w-screen-2xl flex items-center">
-						<div className=" absolute flex w-full max-w-screen-2xl items-center">
+				<div className="flex justify-center fixed w-screen shadow-3xl bg-black">
+					<div className="flex items-center w-full justify-center">
+						<div className="absolute flex max-w-[1280px] w-full items-center z-10">
 							<Link href={"/"} className="ml-6">
 								<Image
 									src={logo}
@@ -47,17 +47,21 @@ export default function RootLayout({
 								</Link>
 							</div>
 						</div>
-						<Image
-							src={banner}
-							alt="banner - pokedex"
-							height={600}
-							width={3840}
-							quality={100}
-							sizes="100vw"
-						/>
+						<div className="h-[200px] w-[1280px] relative">
+							<Image
+								src={banner}
+								alt="banner - pokedex"
+								// height={600}
+								// width={3840}
+								fill
+								quality={100}
+								sizes="100vw"
+								style={{ objectFit: "cover" }}
+							/>
+						</div>
 					</div>
 				</div>
-				<div className="min-h-full"> {children}</div>
+				<div className="pt-[200px] flex justify-center">{children}</div>
 			</body>
 		</html>
 	);

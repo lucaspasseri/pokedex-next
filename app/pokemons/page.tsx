@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from "../db/db";
 
 import Pokemons from "../components/pokemons/pokemons";
 
@@ -12,7 +11,7 @@ export default async function Home() {
 	let pokemons = await getPokemons();
 
 	return (
-		<main className="flex justify-center h-full  bg-orange-300 flex-1">
+		<main className="bg-orange-300">
 			<Pokemons pokemons={pokemons} />
 		</main>
 	);

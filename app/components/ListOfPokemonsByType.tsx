@@ -29,9 +29,9 @@ export default function ListOfPokemonsByType({
 		},
 	];
 	return (
-		<div>
-			<h2 className="p-4">Pokemons por tipo:</h2>
-			<div className="flex p-4">
+		<section className="flex flex-wrap">
+			<h2>Pokemons por tipo:</h2>
+			<div className="flex flex-wrap p-4">
 				{types.map((item) => {
 					return (
 						<div className="flex mr-4" key={item.id}>
@@ -56,6 +56,6 @@ export default function ListOfPokemonsByType({
 					);
 				})}
 			</div>
-		</div>
+		</section>
 	);
 }

@@ -7,7 +7,7 @@ export default function Pokemons({ pokemons }: any) {
 	const pathname = usePathname();
 
 	return (
-		<div>
+		<section>
 			<h1 className="text-3xl mt-6">Pokemons</h1>
 			{pokemons.length > 0 && (
 				<ul className="mt-8">
@@ -28,6 +28,6 @@ export default function Pokemons({ pokemons }: any) {
 					))}
 				</ul>
 			)}
-		</div>
+		</section>
 	);
 }
