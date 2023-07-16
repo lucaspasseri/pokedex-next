@@ -2,6 +2,7 @@ import Image from "next/image";
 import fireType from "../../public/images/pokemon-types/fire.png";
 import grassType from "../../public/images/pokemon-types/grass.png";
 import waterType from "../../public/images/pokemon-types/water.png";
+import Link from "next/link";
 
 export default function ListOfPokemonsByType({
 	firePokemons,
@@ -29,13 +30,13 @@ export default function ListOfPokemonsByType({
 		},
 	];
 	return (
-		<section className="flex flex-wrap">
+		<section className="flex flex-col">
 			<h2>Pokemons por tipo:</h2>
-			<div className="flex flex-wrap p-4">
+			<div className="flex flex-wrap mt-4">
 				{types.map((item) => {
 					return (
-						<div className="flex mr-4" key={item.id}>
-							<div className="mr-2">
+						<div className="flex mr-20" key={item.id}>
+							<div className="mr-2 w-[60px] h-[60px]">
 								<Image
 									src={item.image}
 									alt={`tipo pokemon: ${item.name}`}
@@ -47,7 +48,7 @@ export default function ListOfPokemonsByType({
 								{item.pokemons.map((item: any) => {
 									return (
 										<div key={item.id}>
-											<div>{item.name}</div>
+											<Link href={`pokemons/${item.name}`}>{item.name}</Link>
 										</div>
 									);
 								})}

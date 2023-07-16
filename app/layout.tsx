@@ -22,14 +22,16 @@ export default function RootLayout({
 			<body className="bg-black min-h-screen ">
 				<div className="flex justify-center fixed w-screen shadow-3xl bg-black">
 					<div className="flex items-center w-full justify-center">
-						<div className="absolute flex max-w-[1280px] w-full items-center z-10">
-							<Link href={"/"} className="ml-6">
-								<Image
-									src={logo}
-									alt="logo - pokebola"
-									width={80}
-									height={80}
-								/>
+						<div className="absolute flex max-w-[1440px] w-full items-center z-10 px-[20px] md:px-[100px]">
+							<Link href={"/"}>
+								<div className="w-[80px] h-[80px]">
+									<Image
+										src={logo}
+										alt="logo - pokebola"
+										width={80}
+										height={80}
+									/>
+								</div>
 							</Link>
 							<div className=" w-full flex">
 								<Link
@@ -47,12 +49,10 @@ export default function RootLayout({
 								</Link>
 							</div>
 						</div>
-						<div className="h-[200px] w-[1280px] relative">
+						<div className="h-[160px] w-[100vw] relative">
 							<Image
 								src={banner}
 								alt="banner - pokedex"
-								// height={600}
-								// width={3840}
 								fill
 								quality={100}
 								sizes="100vw"
@@ -61,7 +61,7 @@ export default function RootLayout({
 						</div>
 					</div>
 				</div>
-				<div className="pt-[200px] flex justify-center">{children}</div>
+				<div className="pt-[160px] flex justify-center">{children}</div>
 			</body>
 		</html>
 	);

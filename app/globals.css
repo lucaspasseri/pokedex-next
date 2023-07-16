@@ -28,7 +28,7 @@ body {
 
 main {
 	width: 100%;
-	max-width: 1280px;
+	max-width: 1440px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -36,4 +36,8 @@ main {
 
 section {
 	padding: 10px 100px;
+
+	@media (max-width: 799px) {
+		padding: 10px 20px;
+	}
 }
