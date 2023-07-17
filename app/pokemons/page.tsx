@@ -1,6 +1,5 @@
 import { prisma } from "../db/db";
-
-import Pokemons from "../components/pokemons/pokemons";
+import ListOfPokemons from "../components/ListOfPokemons";
 
 export default async function Home() {
 	async function getPokemons() {
@@ -12,7 +11,7 @@ export default async function Home() {
 
 	return (
 		<main className="bg-orange-300">
-			<Pokemons pokemons={pokemons} />
+			<ListOfPokemons pokemons={pokemons} />
 		</main>
 	);
 }

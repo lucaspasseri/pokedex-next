@@ -47,6 +47,13 @@ export default function RootLayout({
 								>
 									Pokemons
 								</Link>
+
+								<Link
+									className="ml-4 p-2 hover:bg-red-700 mr-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+									href={"/tipos"}
+								>
+									Tipos
+								</Link>
 							</div>
 						</div>
 						<div className="h-[160px] w-[100vw] relative">

@@ -32,10 +32,11 @@ export default function ListOfPokemonsByType({
 	return (
 		<section className="flex flex-col">
 			<h2>Pokemons por tipo:</h2>
-			<div className="flex flex-wrap mt-4">
+
+			<ol className="flex flex-wrap mt-4 justify-evenly ">
 				{types.map((item) => {
 					return (
-						<div className="flex mr-20" key={item.id}>
+						<div className="flex flex-wrap min-w-[200px]" key={item.id}>
 							<div className="mr-2 w-[60px] h-[60px]">
 								<Image
 									src={item.image}
@@ -56,7 +57,7 @@ export default function ListOfPokemonsByType({
 						</div>
 					);
 				})}
-			</div>
+			</ol>
 		</section>
 	);
 }
