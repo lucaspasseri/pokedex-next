@@ -38,12 +38,14 @@ export default function ListOfPokemonsByType({
 					return (
 						<div className="flex flex-wrap min-w-[200px]" key={item.id}>
 							<div className="mr-2 w-[60px] h-[60px]">
-								<Image
-									src={item.image}
-									alt={`tipo pokemon: ${item.name}`}
-									width={60}
-									height={60}
-								/>
+								{item.image && (
+									<Image
+										src={item.image}
+										alt={`tipo pokemon: ${item.name}`}
+										width={60}
+										height={60}
+									/>
+								)}
 							</div>
 							<div>
 								{item.pokemons.map((item: any) => {

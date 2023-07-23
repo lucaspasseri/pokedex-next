@@ -16,12 +16,14 @@ export default function ListOfPokemons({ pokemons }: any) {
 										<div className="ml-2">{item.name}</div>
 									</div>
 									<div className="flex justify-center">
-										<Image
-											src={item.image}
-											alt={item.name}
-											width={100}
-											height={100}
-										/>
+										{item.image && (
+											<Image
+												src={item.image}
+												alt={item.name}
+												width={100}
+												height={100}
+											/>
+										)}
 									</div>
 								</div>
 							</Link>
