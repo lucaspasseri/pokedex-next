@@ -56,7 +56,7 @@ export default function RootLayout({
 								</Link>
 							</div>
 						</div>
-						<div className="h-[160px] w-[100vw] relative">
+						<div className="h-[160px] w-[100vw] relative max-w-[1440px]">
 							<Image
 								src={banner}
 								alt="banner - pokedex"
@@ -68,7 +68,7 @@ export default function RootLayout({
 						</div>
 					</div>
 				</div>
-				<div className="pt-[160px] flex justify-center">{children}</div>
+				<div className="flex justify-center">{children}</div>
 			</body>
 		</html>
 	);
