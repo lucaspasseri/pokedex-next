@@ -1,7 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { prisma } from "../db/db";
 
-export default function ListOfPokemons({ pokemons }: any) {
+async function getThemAll() {
+	const pokemons = await prisma.pokemon.findMany({
+		include: {
+			pokemonTypes: true,
+		},
+	});
+
+	return pokemons;
+}
+
+export default async function ListOfPokemons() {
+	const pokemons = await getThemAll();
 	return (
 		<section className="flex flex-col">
 			<h2>Ordem numérica:</h2>

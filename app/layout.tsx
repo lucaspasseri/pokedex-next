@@ -1,11 +1,8 @@
 import Link from "next/link";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Image from "next/image";
 import logo from "../public/images/app/pokeball-logo2.png";
 import banner from "../public/images/app/pokedex-banner3.jpeg";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Pokedex",

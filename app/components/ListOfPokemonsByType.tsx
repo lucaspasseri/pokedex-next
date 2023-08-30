@@ -3,12 +3,64 @@ import fireType from "../../public/images/pokemon-types/fire.png";
 import grassType from "../../public/images/pokemon-types/grass.png";
 import waterType from "../../public/images/pokemon-types/water.png";
 import Link from "next/link";
+import { prisma } from "../db/db";
 
-export default function ListOfPokemonsByType({
-	firePokemons,
-	grassPokemons,
-	waterPokemons,
-}: any) {
+async function getFireType() {
+	const pokemons = await prisma.pokemon.findMany({
+		where: {
+			pokemonTypes: {
+				some: {
+					name: "Fire",
+				},
+			},
+		},
+		include: {
+			pokemonTypes: true,
+		},
+	});
+
+	return pokemons;
+}
+
+async function getGrassType() {
+	const pokemons = await prisma.pokemon.findMany({
+		where: {
+			pokemonTypes: {
+				some: {
+					name: "Grass",
+				},
+			},
+		},
+		include: {
+			pokemonTypes: true,
+		},
+	});
+
+	return pokemons;
+}
+
+async function getWaterType() {
+	const pokemons = await prisma.pokemon.findMany({
+		where: {
+			pokemonTypes: {
+				some: {
+					name: "Water",
+				},
+			},
+		},
+		include: {
+			pokemonTypes: true,
+		},
+	});
+
+	return pokemons;
+}
+
+export default async function ListOfPokemonsByType() {
+	const firePokemons = await getFireType();
+	const grassPokemons = await getGrassType();
+	const waterPokemons = await getWaterType();
+
 	const types = [
 		{
 			id: 0,
