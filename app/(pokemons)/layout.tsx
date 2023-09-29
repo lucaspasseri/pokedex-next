@@ -1,8 +1,8 @@
 import Link from "next/link";
 import "./globals.css";
 import Image from "next/image";
-import logo from "../public/images/app/pokeball-logo2.png";
-import banner from "../public/images/app/pokedex-banner3.jpeg";
+import logo from "../../public/images/app/pokeball-logo2.png";
+import banner from "../../public/images/app/pokedex-banner3.jpeg";
 
 export const metadata = {
 	title: "Pokedex",

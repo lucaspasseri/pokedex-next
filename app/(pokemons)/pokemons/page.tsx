@@ -1,4 +1,4 @@
-import ListOfPokemons from "../components/ListOfPokemons";
+import ListOfPokemons from "../../components/ListOfPokemons";
 
 export default function Pokemons() {
 	return (
