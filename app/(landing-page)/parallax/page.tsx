@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { ParallaxProvider, Parallax, useParallax } from "react-scroll-parallax";
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import Nav from "../../components/parallax/Nav";
 import { motion } from "framer-motion";
 
