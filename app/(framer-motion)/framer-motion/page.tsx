@@ -1,6 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
+import LandscapeParallax from "@/app/components/parallax/LandscapeParallax";
 
 export default function Home() {
 	const ref = useRef(null);
@@ -8,68 +9,117 @@ export default function Home() {
 		target: ref,
 		offset: ["start start", "end start"],
 	});
-	const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-	const backgroundYMid = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-	const textY = useTransform(scrollYProgress, [0, 1], ["0%", "350%"]);
-	const backgroundYBottom = useTransform(
+
+	const animationOrder = {
+		initial: 0,
+		firstMove: 0.05,
+		secondMove: 0.1,
+		thirdMove: 0.7,
+		lastMove: 0.95,
+		end: 1,
+	};
+
+	const logoTop = useTransform(
 		scrollYProgress,
-		[0, 1],
-		["0%", "10%"]
+		[animationOrder.initial, animationOrder.thirdMove],
+		["2%", "90%"]
+	);
+
+	const logoLeft = useTransform(
+		scrollYProgress,
+		[
+			animationOrder.initial,
+			animationOrder.firstMove,
+			animationOrder.secondMove,
+			animationOrder.thirdMove,
+			animationOrder.lastMove,
+			animationOrder.end,
+		],
+		["auto", "auto", "20px", "20px", "initial", "initial"]
+	);
+
+	const logoRight = useTransform(
+		scrollYProgress,
+		[
+			animationOrder.initial,
+			animationOrder.firstMove,
+			animationOrder.secondMove,
+			animationOrder.thirdMove,
+			animationOrder.lastMove,
+			animationOrder.end,
+		],
+		["50%", "50%", "initial", "initial", "50%", "50%"]
+	);
+	const nameTop = useTransform(
+		scrollYProgress,
+		[animationOrder.initial, animationOrder.thirdMove],
+		["1%", "90%"]
+	);
+
+	const nameRight = useTransform(
+		scrollYProgress,
+		[
+			animationOrder.initial,
+			animationOrder.firstMove,
+			animationOrder.secondMove,
+			animationOrder.thirdMove,
+			animationOrder.lastMove,
+			animationOrder.end,
+		],
+		["auto", "auto", "20px", "20px", "auto", "auto"]
+	);
+
+	const nameLeft = useTransform(
+		scrollYProgress,
+		[
+			animationOrder.initial,
+			animationOrder.firstMove,
+			animationOrder.secondMove,
+			animationOrder.thirdMove,
+			animationOrder.lastMove,
+			animationOrder.end,
+		],
+		["50%", "50%", "auto", "auto", "50%", "50%"]
 	);
 
 	return (
-		<main className="h-[5000px] border-2 border-blue-400 flex">
-			<div
+		<main className="h-[5000px] bg-blue-400 flex flex-col">
+			<LandscapeParallax />
+			<section
 				ref={ref}
-				className="w-full h-screen overflow-hidden relative grid place-items-center"
+				className="w-full h-[100%] overflow-hidden relative grid place-items-center bg-black flex"
 			>
-				<motion.h1
-					style={{ y: textY }}
-					className="font-bold text-white text-7xl md:text-9xl relative z-20"
-				>
-					PARALLAX
-				</motion.h1>
-
 				<motion.div
-					className="absolute inset-0 z-0"
+					className="absolute top-8 z-10"
 					style={{
-						backgroundImage: `url(/images/parallax/landscape.jpeg)`,
+						backgroundImage: `url(/images/parallax/isic-logo.png)`,
 						backgroundPosition: "bottom",
-						//backgroundSize: "cover",
-						backgroundSize: "contain",
-						y: backgroundY,
+						height: "200px",
+						width: "200px",
+						backgroundSize: "cover",
+						right: logoRight,
+						left: logoLeft,
+						top: logoTop,
+						// y: logoYMove,
+						// x: logoXMove,
 					}}
 				/>
 				<motion.div
-					className="absolute inset-0 z-5"
+					className="absolute top-16 z-10"
 					style={{
-						backgroundImage: `url(/images/parallax/landscape-mid.png)`,
-						backgroundPosition: "bottom",
-						//backgroundSize: "cover",
-						backgroundSize: "contain",
-						y: backgroundYMid,
+						backgroundImage: `url(/images/parallax/isic-brand-name.png)`,
+						backgroundPosition: "top",
+						height: "132px",
+						width: "230px",
+						backgroundSize: "cover",
+						left: nameLeft,
+						right: nameRight,
+						top: nameTop,
+						// y: nameYMove,
+						// x: nameXMove,
 					}}
 				/>
-				<motion.div
-					className="absolute inset-0 z-10"
-					style={{
-						backgroundImage: `url(/images/parallax/landscape-bottom.png)`,
-						backgroundPosition: "bottom",
-						backgroundSize: "contain",
-						y: backgroundYBottom,
-						//backgroundSize: "cover",
-					}}
-				/>
-				<div
-					className="absolute inset-0 z-20"
-					style={{
-						backgroundImage: `url(/images/parallax/landscape-sub-bottom.png)`,
-						backgroundPosition: "bottom",
-						backgroundSize: "contain",
-						//backgroundSize: "cover",
-					}}
-				/>
-			</div>
+			</section>
 		</main>
 	);
 }
