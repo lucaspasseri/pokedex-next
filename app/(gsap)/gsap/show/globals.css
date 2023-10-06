@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+	--dark: #1d1d1d;
+	--light: #fff;
+	--green: #28a92b;
+	--purple: #8d3dae;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+button {
+	cursor: pointer;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #130d0a;
+	font-family: "Playfair Display", serif;
+	color: #fff;
+}
+
+#content {
+	background-color: #130d0a;
+}
+
+#hero-mobile {
+	display: none;
+	background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/full_illustration.png")
+		no-repeat center bottom / cover;
+	height: 320px;
+}
+
+.first-section {
+	padding: 50px 0 20px 0;
+}
+.text-header {
+	font-size: 50px;
+	text-align: center;
+}
+h1 {
+	line-height: 120%;
+	margin-bottom: 30px;
+}
+p {
+	color: #ede0d5;
+	font-size: 18px;
+	line-height: 150%;
+}
+
+#parallax-header {
+	overflow: hidden;
+	position: relative;
+	max-width: 1920px;
+	margin: 0 auto;
+	height: 160vh;
+}
+
+.layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background-size: cover; */
+	background-size: contain;
+	background-position: top;
+	background-repeat: no-repeat;
+}
+
+.space {
+	height: 200vh;
+}
+
+.layer-bg {
+	background-image: url(/images/parallax/landscape.jpeg);
+	z-index: 5;
+}
+.layer-1 {
+	background-image: url(/images/parallax/landscape-mid.png);
+	z-index: 10;
+}
+.layer-2 {
+	background-image: url(/images/parallax/landscape-bottom.png);
+	z-index: 15;
+}
+.layer-3 {
+	background-image: url(/images/parallax/landscape-sub-bottom.png);
+	z-index: 20;
+}
+
+.text {
+	font-size: 9.5vw;
+	/* z-index: 9; */
+	z-index: 14;
+	background-position: bottom;
+	bottom: 40%;
+	top: inherit;
+	left: 25%;
+	height: fit-content;
+	width: 50vw;
+}
+
+section {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+h1 {
+	color: white;
+	text-shadow: 1px 1px 3px black;
+	z-index: 1;
+	font-size: 3em;
+	font-weight: 400;
+}
