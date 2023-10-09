@@ -15,8 +15,6 @@ async function getThemAll() {
 export default async function ListOfPokemons() {
 	const pokemons = await getThemAll();
 
-	console.log({ pokemons });
-
 	return (
 		<section className="flex flex-col">
 			<h2>Ordem numérica:</h2>

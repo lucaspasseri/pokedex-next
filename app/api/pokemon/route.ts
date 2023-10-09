@@ -9,8 +9,6 @@ export async function GET() {
 		},
 	});
 
-	console.log({ pokemon });
-
 	return NextResponse.json({
 		pokemon: pokemon,
 	});

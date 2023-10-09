@@ -21,7 +21,7 @@ export default function Scroll() {
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
 			// add a box and circle animation to our timeline and play on first render
-			console.log("creating timeline");
+
 			tl.current && tl.current.progress(0).kill();
 			tl.current = gsap
 				.timeline()
@@ -37,7 +37,6 @@ export default function Scroll() {
 
 	useEffect(() => {
 		// toggle the direction of our timeline
-		console.log("toggling reverse to", reversed);
 		tl.current.reversed(reversed);
 	}, [reversed]);
 
