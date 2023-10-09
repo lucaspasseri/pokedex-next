@@ -9,106 +9,106 @@ export default function Recap() {
 	const recap = useRef(null);
 
 	useLayoutEffect(() => {
-		const ctx = gsap.context((self) => {
-			const tl = gsap.timeline();
+		const tl = gsap.timeline();
 
-			function part1() {
-				tl.to(".logo", {
-					x: "-35vw",
-					scrollTrigger: {
-						trigger: ".logo",
-						scrub: true,
-						start: "0px", // when the top of the trigger hits the top of the viewport
-						end: "300px",
+		function part1() {
+			tl.to(".logo", {
+				x: "-35vw",
+				scrollTrigger: {
+					trigger: ".logo",
+					scrub: true,
+					start: "-40px", // when the top of the trigger hits the top of the viewport
+					end: "0px",
+				},
+			})
+				.to(
+					".brand-name",
+					{
+						x: "35vw",
+						scrollTrigger: {
+							trigger: ".brand-name",
+							scrub: true,
+							start: "-40px", // when the top of the trigger hits the top of the viewport
+							end: "0px",
+						},
 					},
-				})
-					.to(
-						".brand-name",
-						{
-							x: "35vw",
-							scrollTrigger: {
-								trigger: ".brand-name",
-								scrub: true,
-								start: "0px", // when the top of the trigger hits the top of the viewport
-								end: "300px",
-							},
+					"<"
+				)
+				.to(
+					".brand-name",
+					{
+						y: "130vh",
+						scrollTrigger: {
+							trigger: ".brand-name",
+							scrub: true,
+							start: "-40px", // when the top of the trigger hits the top of the viewport
+							//end: "bottom top",
+							end: "599px",
 						},
-						"<"
-					)
-					.to(
-						".brand-name",
-						{
-							y: "120vh",
-							scrollTrigger: {
-								trigger: ".brand-name",
-								scrub: true,
-								start: "0px", // when the top of the trigger hits the top of the viewport
-								//end: "bottom top",
-								end: "999px",
-							},
-						},
-						">"
-					)
-					.to(
-						".logo",
-						{
-							y: "120vh",
-							scrollTrigger: {
-								trigger: ".logo",
-								scrub: true,
-								start: "0px", // when the top of the trigger hits the top of the viewport
-								end: "999px",
-								// end: "bottom+=500px bottom",
-							},
-						},
-						"<"
-					);
-
-				return tl;
-			}
-
-			function part2() {
-				const tl2 = gsap.timeline();
-
-				tl2
-					.to(".logo", {
-						x: "0px",
+					},
+					">"
+				)
+				.to(
+					".logo",
+					{
+						y: "130vh",
 						scrollTrigger: {
 							trigger: ".logo",
 							scrub: true,
-							start: "1000px",
-							end: "+=600px",
+							start: "-40px", // when the top of the trigger hits the top of the viewport
+							end: "599px",
+							// end: "bottom+=500px bottom",
 						},
-					})
-					.to(
-						".brand-name",
-						{
-							x: "0px",
-							scrollTrigger: {
-								trigger: ".brand-name",
-								scrub: true,
-								start: "1000px",
-								end: "+=1000px",
-							},
+					},
+					"<"
+				);
+
+			return tl;
+		}
+
+		function part2() {
+			const tl2 = gsap.timeline();
+
+			tl2
+				.to(
+					".logo",
+					{
+						x: "0vw",
+						scrollTrigger: {
+							trigger: ".logo",
+							scrub: true,
+							start: "500px",
+							end: "+=100px",
 						},
-						"<"
-					);
+					},
+					">"
+				)
+				.to(
+					".brand-name",
+					{
+						x: "0vw",
+						scrollTrigger: {
+							trigger: ".brand-name",
+							scrub: true,
+							start: "500px",
+							end: "+=100px",
+						},
+					},
+					"<"
+				);
 
-				return tl2;
-			}
+			return tl2;
+		}
 
-			const tlAll = gsap.timeline();
+		const tlAll = gsap.timeline();
 
-			tlAll.add(part1());
-			tlAll.add(part2(), ">");
-		}, recap); // <- Scope!
-
-		return () => ctx.revert(); // <- Cleanup!
+		tlAll.add(part1());
+		tlAll.add(part2(), ">");
 	}, []);
 
 	return (
 		<div ref={recap} className="recap flex justify-center absolute w-full">
-			<div className="isic flex">
+			<div className="isic flex pt-[40px]">
 				<div className="logo" />
 				<div className="brand-name" />
 			</div>
