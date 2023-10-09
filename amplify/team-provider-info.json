@@ -19,5 +19,26 @@
         }
       }
     }
+  },
+  "envi": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pokedexnext-envi-72522-authRole",
+      "UnauthRoleArn": "arn:aws:iam::306982440809:role/amplify-pokedexnext-envi-72522-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::306982440809:role/amplify-pokedexnext-envi-72522-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-pokedexnext-envi-72522-deployment",
+      "UnauthRoleName": "amplify-pokedexnext-envi-72522-unauthRole",
+      "StackName": "amplify-pokedexnext-envi-72522",
+      "StackId": "arn:aws:cloudformation:us-east-1:306982440809:stack/amplify-pokedexnext-envi-72522/29679ef0-668e-11ee-82fd-12beb5e74b13",
+      "AmplifyAppId": "d33gtusszw51ej"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d33gtusszw51ej",
+          "type": "manual"
+        }
+      }
+    }
   }
 }
