@@ -76,7 +76,6 @@ export default function Recap() {
 						scrollTrigger: {
 							trigger: ".logo",
 							scrub: true,
-							markers: true,
 							start: "1000px",
 							end: "+=600px",
 						},
