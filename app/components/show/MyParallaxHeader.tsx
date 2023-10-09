@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function MyParallaxHeader() {
 	gsap.registerPlugin(ScrollTrigger);
-	const main = useRef();
+	const main = useRef(null);
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context((self) => {

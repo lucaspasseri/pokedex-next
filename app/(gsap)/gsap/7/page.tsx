@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import "./globals.css";
@@ -6,9 +7,9 @@ import { gsap } from "gsap";
 
 const randomX = gsap.utils.random(-200, 200, 1, true);
 
-function Box({ children, endX }) {
-	const boxRef = useRef();
-	const ctx = useRef();
+function Box({ children, endX }: any) {
+	const boxRef = useRef(null);
+	const ctx = useRef(null);
 
 	useEffect(() => {
 		ctx.current = gsap.context(() => {}); // nothing initially (we'll add() to the context when endX changes)

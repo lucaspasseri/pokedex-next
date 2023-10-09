@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { prisma } from "../../db/db";
+//import { prisma } from "../../db/db";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
 async function getPokemon(context: any) {

@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Recap() {
 	gsap.registerPlugin(ScrollTrigger);
-	const recap = useRef();
+	const recap = useRef(null);
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context((self) => {

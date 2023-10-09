@@ -5,7 +5,7 @@ import React, { useLayoutEffect, useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 export default function Scroll() {
-	const app = useRef();
+	const app = useRef(null);
 
 	const [count, setCount] = useState(0);
 	const [delayedCount, setDelayedCount] = useState(0);

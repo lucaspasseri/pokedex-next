@@ -8,12 +8,12 @@ import "./globals.css";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Scroll() {
-	const main = useRef();
+	const main = useRef(null);
 
 	useLayoutEffect(() => {
-		const ctx = gsap.context((self) => {
+		const ctx = gsap.context((self: any) => {
 			const boxes = self.selector(".box");
-			boxes.forEach((box) => {
+			boxes.forEach((box: any) => {
 				gsap.to(box, {
 					x: 150,
 					scrollTrigger: {

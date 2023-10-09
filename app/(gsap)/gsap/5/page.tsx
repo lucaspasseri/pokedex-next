@@ -5,7 +5,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 export default function Scroll() {
-	const app = useRef();
+	const app = useRef(null);
 
 	const Box = ({ children, className, anim }: any) => {
 		return (

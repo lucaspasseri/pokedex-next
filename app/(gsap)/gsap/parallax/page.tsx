@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import "./globals.css";
@@ -7,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Parallax() {
 	gsap.registerPlugin(ScrollTrigger);
-	const main = useRef();
+	const main = useRef(null);
 	const refs = useRef([]);
 
 	useLayoutEffect(() => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import { useRef, useEffect } from "react";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";

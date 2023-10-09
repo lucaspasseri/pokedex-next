@@ -5,8 +5,8 @@ import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 export default function Example({ params }: any) {
-	const app = useRef();
-	const circle = useRef();
+	const app = useRef(null);
+	const circle = useRef(null);
 
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {

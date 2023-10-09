@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import "./globals.css";
@@ -5,8 +6,8 @@ import React, { useLayoutEffect, useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 export default function Scroll() {
-	const app = useRef();
-	const tl = useRef();
+	const app = useRef(null);
+	const tl = useRef(null);
 
 	const [reversed, setReversed] = useState(false);
 

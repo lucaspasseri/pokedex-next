@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ParallaxHeader() {
 	gsap.registerPlugin(ScrollTrigger);
-	const main = useRef();
+	const main = useRef(null);
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context((self) => {
@@ -20,7 +20,7 @@ export default function ParallaxHeader() {
 				},
 			});
 
-			gsap.utils.toArray(".parallax").forEach((layer) => {
+			gsap.utils.toArray(".parallax").forEach((layer: any) => {
 				const depth = layer.dataset.depth;
 				const movement = -(layer.offsetHeight * depth);
 				tl.to(layer, { y: movement, ease: "none" }, 0);
@@ -66,7 +66,7 @@ export default function ParallaxHeader() {
 								</p>
 								<p>
 									It may seem ridiculous, but it reminded me of General
-									Washington's head, as seen in the popular busts of him. It had
+									Washingtons head, as seen in the popular busts of him. It had
 									the same long regularly graded retreating slope from above the
 									brows, which were likewise very projecting, like two long
 									promontories thickly wooded on top. Queequeg was George
