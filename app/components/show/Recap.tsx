@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ReactLenis } from "@studio-freight/react-lenis";
 
 export default function Recap() {
 	gsap.registerPlugin(ScrollTrigger);
@@ -106,12 +107,28 @@ export default function Recap() {
 		tlAll.add(part2(), ">");
 	}, []);
 
+	const lenisRef = useRef();
+
+	useEffect(() => {
+		function update(time: any) {
+			lenisRef.current?.raf(time * 1000);
+		}
+
+		gsap.ticker.add(update);
+
+		return () => {
+			gsap.ticker.remove(update);
+		};
+	});
+
 	return (
-		<div ref={recap} className="recap flex justify-center absolute w-full">
-			<div className="isic flex pt-[40px]">
-				<div className="logo" />
-				<div className="brand-name" />
+		<ReactLenis ref={lenisRef} autoRaf={false}>
+			<div ref={recap} className="recap flex justify-center absolute w-full">
+				<div className="isic flex pt-[40px]">
+					<div className="logo" />
+					<div className="brand-name" />
+				</div>
 			</div>
-		</div>
+		</ReactLenis>
 	);
 }
