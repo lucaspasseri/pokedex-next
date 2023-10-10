@@ -107,7 +107,7 @@ export default function Recap() {
 		tlAll.add(part2(), ">");
 	}, []);
 
-	const lenisRef = useRef();
+	const lenisRef = useRef<any>(null);
 
 	useEffect(() => {
 		function update(time: any) {
