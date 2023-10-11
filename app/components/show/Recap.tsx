@@ -19,7 +19,6 @@ export default function Recap() {
 				scrub: true,
 				start: "top",
 				end: "+=1000px",
-				markers: true,
 			},
 		});
 
