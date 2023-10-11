@@ -6,108 +6,64 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
 
 export default function Recap() {
-	gsap.registerPlugin(ScrollTrigger);
-	const recap = useRef(null);
+	const logo = useRef(null);
+	const brandName = useRef(null);
+	const lenisRef = useRef<any>(null);
 
 	useLayoutEffect(() => {
-		const tl = gsap.timeline();
+		gsap.registerPlugin(ScrollTrigger);
 
-		function part1() {
-			tl.to(".logo", {
-				x: "-35vw",
-				scrollTrigger: {
-					trigger: ".logo",
-					scrub: true,
-					start: "-40px", // when the top of the trigger hits the top of the viewport
-					end: "0px",
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: document.documentElement,
+				scrub: true,
+				start: "top",
+				end: "+=1000px",
+				markers: true,
+			},
+		});
+
+		tl.to(logo.current, {
+			x: "-35vw",
+			y: "40vh",
+		})
+			.to(
+				brandName.current,
+				{
+					x: "35vw",
+					y: "40vh",
 				},
-			})
-				.to(
-					".brand-name",
-					{
-						x: "35vw",
-						scrollTrigger: {
-							trigger: ".brand-name",
-							scrub: true,
-							start: "-40px", // when the top of the trigger hits the top of the viewport
-							end: "0px",
-						},
-					},
-					"<"
-				)
-				.to(
-					".brand-name",
-					{
-						y: "130vh",
-						scrollTrigger: {
-							trigger: ".brand-name",
-							scrub: true,
-							start: "-40px", // when the top of the trigger hits the top of the viewport
-							//end: "bottom top",
-							end: "599px",
-						},
-					},
-					">"
-				)
-				.to(
-					".logo",
-					{
-						y: "130vh",
-						scrollTrigger: {
-							trigger: ".logo",
-							scrub: true,
-							start: "-40px", // when the top of the trigger hits the top of the viewport
-							end: "599px",
-							// end: "bottom+=500px bottom",
-						},
-					},
-					"<"
-				);
-
-			return tl;
-		}
-
-		function part2() {
-			const tl2 = gsap.timeline();
-
-			tl2
-				.to(
-					".logo",
-					{
-						x: "0vw",
-						scrollTrigger: {
-							trigger: ".logo",
-							scrub: true,
-							start: "500px",
-							end: "+=100px",
-						},
-					},
-					">"
-				)
-				.to(
-					".brand-name",
-					{
-						x: "0vw",
-						scrollTrigger: {
-							trigger: ".brand-name",
-							scrub: true,
-							start: "500px",
-							end: "+=100px",
-						},
-					},
-					"<"
-				);
-
-			return tl2;
-		}
-
-		const tlAll = gsap.timeline();
-
-		tlAll.add(part1());
-		tlAll.add(part2(), ">");
+				"<"
+			)
+			.to(
+				brandName.current,
+				{
+					y: "130vh",
+				},
+				">"
+			)
+			.to(
+				logo.current,
+				{
+					y: "130vh",
+				},
+				"<"
+			)
+			.to(
+				logo.current,
+				{
+					x: "0vw",
+				},
+				">"
+			)
+			.to(
+				brandName.current,
+				{
+					x: "0vw",
+				},
+				"<"
+			);
 	}, []);
-
-	const lenisRef = useRef<any>(null);
 
 	useEffect(() => {
 		function update(time: any) {
@@ -123,10 +79,10 @@ export default function Recap() {
 
 	return (
 		<ReactLenis ref={lenisRef} autoRaf={false}>
-			<div ref={recap} className="recap flex justify-center absolute w-full">
+			<div className="recap flex justify-center absolute w-full">
 				<div className="isic flex pt-[40px]">
-					<div className="logo" />
-					<div className="brand-name" />
+					<div ref={logo} className="logo" />
+					<div ref={brandName} className="brand-name" />
 				</div>
 			</div>
 		</ReactLenis>
