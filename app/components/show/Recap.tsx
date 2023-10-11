@@ -5,11 +5,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import Image from "next/image";
+import useWindowSize from "@/app/hooks/useWindowSize";
 
 export default function Recap() {
 	const logo = useRef(null);
 	const brandName = useRef(null);
 	const lenisRef = useRef<any>(null);
+	const size = useWindowSize();
 
 	useLayoutEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
@@ -23,14 +25,22 @@ export default function Recap() {
 			},
 		});
 
+		const logoInitialX = 200 - size.width / 2;
+		const logoP = logoInitialX / size.width;
+		const logoVW = logoP * 100 + "vw";
+
+		const brandInitialX = size.width / 2 - 200;
+		const brandP = brandInitialX / size.width;
+		const brandVW = brandP * 100 + "vw";
+
 		tl.to(logo.current, {
-			x: "-35vw",
+			x: logoVW,
 			y: "40vh",
 		})
 			.to(
 				brandName.current,
 				{
-					x: "35vw",
+					x: brandVW,
 					y: "40vh",
 				},
 				"<"
@@ -63,7 +73,7 @@ export default function Recap() {
 				},
 				"<"
 			);
-	}, []);
+	}, [size.width]);
 
 	useEffect(() => {
 		function update(time: any) {
