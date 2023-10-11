@@ -21,7 +21,7 @@ export default function Recap() {
 				trigger: document.documentElement,
 				scrub: true,
 				start: "top",
-				end: "+=1000px",
+				end: "+=960px",
 			},
 		});
 

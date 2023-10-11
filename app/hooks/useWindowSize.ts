@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 
 type Window = {
-	width: number;
-	height: number;
-	logoVW: string;
-	brandVW: string;
+	width: number | undefined;
+	height: number | undefined;
+	logoVW: string | undefined;
+	brandVW: string | undefined;
 };
 
 export default function useWindowSize() {
 	// Initialize state with undefined width/height so server and client renders match
 	// Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
 	const [windowSize, setWindowSize] = useState<Window>({
-		width: 0,
-		height: 0,
-		logoVW: "0vw",
-		brandVW: "0vw",
+		width: undefined,
+		height: undefined,
+		logoVW: undefined,
+		brandVW: undefined,
 	});
 
 	useEffect(() => {
