@@ -46,12 +46,14 @@ export default function MyParallaxHeader() {
 					fill
 					alt="background layer"
 					className="layer-bg"
+					priority
 				/>
 				<Image
 					src="/images/parallax/landscape-mid.png"
 					fill
 					alt="second layer"
 					className="layer-2"
+					priority
 				/>
 				<h1 className="layer text">PARALLAX</h1>
 				<Image
@@ -59,6 +61,7 @@ export default function MyParallaxHeader() {
 					fill
 					alt="third layer"
 					className="layer-3"
+					priority
 				/>
 			</div>
 		</div>
