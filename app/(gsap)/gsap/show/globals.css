@@ -166,42 +166,23 @@ p {
 	height: 160vh;
 }
 
-.layer {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/* background-size: cover; */
-	background-size: contain;
-	background-position: top;
-	background-repeat: no-repeat;
-}
-
 .space {
 	height: 200vh;
 }
 
 .layer-bg {
-	background-image: url(/images/parallax/landscape.jpeg);
 	z-index: 5;
 }
-.layer-1 {
-	background-image: url(/images/parallax/landscape-mid.png);
+.layer-2 {
 	z-index: 10;
 }
-.layer-2 {
-	background-image: url(/images/parallax/landscape-bottom.png);
-	z-index: 15;
-}
 .layer-3 {
-	background-image: url(/images/parallax/landscape-sub-bottom.png);
-	z-index: 20;
+	z-index: 15;
 }
 
 .text {
 	font-size: 9.5vw;
-	/* z-index: 9; */
+	position: absolute;
 	z-index: 14;
 	background-position: bottom;
 	bottom: 40%;
@@ -236,22 +217,6 @@ h1 {
 	z-index: 1;
 	font-size: 3em;
 	font-weight: 400;
-}
-
-.logo {
-	background-image: url(/images/parallax/isic-logo.png);
-	height: 132px;
-	width: 132px;
-	background-size: cover;
-	z-index: 50;
-}
-
-.brand-name {
-	background-image: url(/images/parallax/isic-brand-name.png);
-	height: 132px;
-	width: 230px;
-	background-size: cover;
-	z-index: 50;
 }
 
 .recap {

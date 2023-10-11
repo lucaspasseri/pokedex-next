@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import Image from "next/image";
 
 export default function Recap() {
 	const logo = useRef(null);
@@ -80,8 +81,22 @@ export default function Recap() {
 		<ReactLenis ref={lenisRef} autoRaf={false}>
 			<div className="recap flex justify-center absolute w-full">
 				<div className="isic flex pt-[40px]">
-					<div ref={logo} className="logo" />
-					<div ref={brandName} className="brand-name" />
+					<Image
+						ref={logo}
+						src="/images/parallax/isic-logo.png"
+						alt="isic logo"
+						height={132}
+						width={132}
+						className="z-30"
+					/>
+					<Image
+						ref={brandName}
+						src="/images/parallax/isic-brand-name.png"
+						alt="isic brand"
+						height={132}
+						width={230}
+						className="z-30"
+					/>
 				</div>
 			</div>
 		</ReactLenis>
