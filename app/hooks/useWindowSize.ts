@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 type Window = {
 	width: number;
 	height: number;
+	logoVW: string;
+	brandVW: string;
 };
 
 export default function useWindowSize() {
@@ -11,6 +13,8 @@ export default function useWindowSize() {
 	const [windowSize, setWindowSize] = useState<Window>({
 		width: 0,
 		height: 0,
+		logoVW: "0vw",
+		brandVW: "0vw",
 	});
 
 	useEffect(() => {
@@ -18,9 +22,20 @@ export default function useWindowSize() {
 		// Handler to call on window resize
 		function handleResize() {
 			// Set window width/height to state
+
+			const logoInitialX = 200 - window.innerWidth / 2;
+			const logoP = logoInitialX / window.innerWidth;
+			const logoVW = logoP * 100 + "vw";
+
+			const brandInitialX = window.innerWidth / 2 - 200;
+			const brandP = brandInitialX / window.innerWidth;
+			const brandVW = brandP * 100 + "vw";
+
 			setWindowSize({
 				width: window.innerWidth,
 				height: window.innerHeight,
+				logoVW,
+				brandVW,
 			});
 		}
 
